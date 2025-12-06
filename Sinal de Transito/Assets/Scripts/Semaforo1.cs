@@ -10,31 +10,24 @@ public class Semaforo : MonoBehaviour
         AMARELO,
         VERDE
     }
-
-    [SerializeField] public ESTADO semaforo = ESTADO.VERMELHO;
-    [SerializeField] float tempo = 0.0f;   
-   
-    void Start()
-    {
-        
-    }
-
+    [SerializeField] public static ESTADO semaforo = ESTADO.VERMELHO;
+    [SerializeField] float tempo = 0.0f;
     void Update()
     {
         tempo += Time.deltaTime;
-        if (tempo < 5f)
+        if (tempo < 1f)
         {
             semaforo = ESTADO.VERDE;
         }
-        if (tempo > 5f && tempo < 8f)
+        if (tempo > 1f && tempo < 2f)
         {
             semaforo = ESTADO.AMARELO;
         }
-        if (tempo > 8f && tempo < 16f)
+        if (tempo > 2f && tempo < 3f)
         {
             semaforo = ESTADO.VERMELHO;
         }
-        if(tempo > 16f)
+        if(tempo > 4f)
         {
             tempo = 0.0f;
         }
@@ -56,6 +49,4 @@ public class Semaforo : MonoBehaviour
                 break;
         }
     }
-
-
 }
